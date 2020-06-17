@@ -15,16 +15,17 @@ class Huerta {
 	
 	method recibeAtaque(plaga) {
 		capacidadProduccion = plaga.nivelDeDanio() * 0.10
-		return if (plaga.transmiteEnfermedades()) { capacidadProduccion -= 10 } else {capacidadProduccion -= 0}
+		if (plaga.transmiteEnfermedades()) { capacidadProduccion -= 10 } }
 	}
-}
+
 
 class Mascota {
 	var property nivelDeSalud = 0
 	
 	method esBueno() {return self.nivelDeSalud() > 250}	
 	
-	method recibeAtaque(plaga) {return if (plaga.transmiteEnfermedades()) {nivelDeSalud -= plaga.nivelDeDanio()} else {}}
+	method recibeAtaque(plaga) {if (plaga.transmiteEnfermedades()) {nivelDeSalud -= plaga.nivelDeDanio()} 
+	}
 }
 
 class Barrio {
