@@ -1,0 +1,35 @@
+import plagas_Elementos.*
+import plagas_TiposDePlagas.*
+
+
+test "Plagas" {
+
+	const cucas = new Cucaracha(poblacion = 30 , pesoPromedio = 10)
+	const mosquitos = new Mosquito(poblacion = 32)
+	const pulguitas = new Pulga(poblacion = 12)
+	const garras = new Garrapata(poblacion = 10)
+	const hogarFeliz = new Hogar(nivelMugre = 4, confort = 10)
+	const huertaDeLechugas = new Huerta(capacidadProduccion = 10 , nivel = 8)
+	const rufus = new Mascota(nivelDeSalud = 240) 
+	
+	assert.equals(15,cucas.nivelDeDanio())
+	assert.equals(32,mosquitos.nivelDeDanio())
+	assert.equals(24,pulguitas.nivelDeDanio())
+	assert.equals(20,garras.nivelDeDanio())
+	assert.that(cucas.transmiteEnfermedades())
+	assert.notThat(mosquitos.transmiteEnfermedades())
+	assert.that(pulguitas.transmiteEnfermedades())
+	
+	cucas.atacarA(hogarFeliz)
+	assert.equals(19,hogarFeliz.nivelMugre())
+	mosquitos.atacarA(huertaDeLechugas)
+	assert.equals(3.2,huertaDeLechugas.capacidadProduccion())
+	pulguitas.atacarA(rufus)
+	assert.equals(216,rufus.nivelDeSalud())
+	garras.atacarA(rufus)
+	assert.equals(196,rufus.nivelDeSalud())
+	
+	
+	assert.equals(12,cucas.pesoPromedio())
+	assert.equals(12,garras.poblacion())
+}

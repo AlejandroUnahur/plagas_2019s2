@@ -1,0 +1,18 @@
+import plagas_Elementos.* 
+
+test "Elementos" {
+
+	const hogarFeliz = new Hogar(nivelMugre = 4, confort = 10)
+	const huertoDeLechugas = new Huerta(capacidadProduccion = 10 , nivel = 8)
+	const rufus = new Mascota(nivelDeSalud = 240)
+	const barrio1 = new Barrio()
+	barrio1.agregar(hogarFeliz)
+	barrio1.agregar(huertoDeLechugas)
+	barrio1.agregar(rufus)
+	
+	assert.that(hogarFeliz.esBueno())
+	assert.that(huertoDeLechugas.esBueno())
+	assert.notThat(rufus.esBueno())
+	assert.that(barrio1.esCopado())
+	
+}
