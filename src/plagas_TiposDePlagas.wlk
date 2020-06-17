@@ -14,7 +14,7 @@ class Plagas {
 class Cucaracha inherits Plagas{
 	var property pesoPromedio = 0
 	
-	method nivelDeDanio() {return if (self.pesoPromedio() >= 10 and self.transmiteEnfermedades()) {poblacion / 2} else {0} }
+	method nivelDeDanio() {return poblacion / 2} 
 	
 	override method transmiteEnfermedades() {
 		return super() and self.pesoPromedio() >= 10
